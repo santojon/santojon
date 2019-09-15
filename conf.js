@@ -3,14 +3,14 @@ var appConfig = {
         styles: ['resume', 'stylish-portfolio', 'style'],
         scripts: ['resume', 'stylish-portfolio', 'utils'],
         externalStyles: [
-            '/apps/santojon' + '/assets/vendor/bootstrap/css/bootstrap.min.css',
-            '/apps/santojon' + '/assets/vendor/fontawesome-free/css/all.min.css',
-            '/apps/santojon' + '/assets/vendor/simple-line-icons/css/simple-line-icons.css'
+            '/assets/vendor/bootstrap/css/bootstrap.min.css',
+            '/assets/vendor/fontawesome-free/css/all.min.css',
+            '/assets/vendor/simple-line-icons/css/simple-line-icons.css'
         ],
         externalScripts: [
-            '/apps/santojon' + '/assets/vendor/jquery/jquery.min.js',
-            '/apps/santojon' + '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js',
-            '/apps/santojon' + '/assets/vendor/jquery-easing/jquery.easing.min.js'
+            '/assets/vendor/jquery/jquery.min.js',
+            '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js',
+            '/assets/vendor/jquery-easing/jquery.easing.min.js'
         ]
     },
     back: {
