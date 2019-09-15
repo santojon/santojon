@@ -24,11 +24,11 @@ var appConfig = {
         appName: 'Jonathan Santos (@santojon)',
         language: navigator.language || 'pt-BR',
         dependencies: [
-            norse.bwf.full,
-            norse.bhdr,
-            norse.frgg,
-            norse.hdllr,
-            norse.loki
+            'libs/bwf.full.js',
+            'libs/bhdr.js',
+            'libs/frgg.js',
+            'libs/hdllr.js',
+            'libs/loki.js'
         ],
         dataPool: 'Bhdr',
         classLoader: 'Bwf',

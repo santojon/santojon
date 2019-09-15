@@ -6,13 +6,35 @@
 function Sgfd(appConfig, options) {
     var sgfd = this;
     var options = options || {};
+
+    var _session = {};
+    /**
+     * Sgfd Session update function
+     * @param params: the params object to include all properties into session
+     */
+    var updateSession = (params) => {
+        if (params) {
+            _session = _session || {}
+            Object.keys(params).forEach((p) => {
+                _session[p] = params[p]
+            })
+        }
+    }
+
+    /**
+     * Save session existent in Sgfd to localstorage
+     */
+    var exportSession = () => {
+        localStorage.setItem('_session', JSON.stringify(_session))
+    }
+
     if (!options['container']) options.container = window;
 
     /**
      * Load all needed data here. Chain order is very important!
      */
-    var loader = function() {
-        with (Sgfd.Base) {
+    var loader = function () {
+        with(Sgfd.Base) {
             var loadList = [];
 
             if (options.externalSettings) {
@@ -20,12 +42,12 @@ function Sgfd(appConfig, options) {
             }
 
             if (typeof appConfig === 'string') loadList.push(appConfig);
-            progressiveLoad(loadList, loadScript, function() {
+            progressiveLoad(loadList, loadScript, function () {
                 if (options.container.appConfig) {
                     appConfig = options.container.appConfig;
                 }
 
-                with (appConfig) {
+                with(appConfig) {
                     // verify nullities
                     if (!back['domainClasses']) back['domainClasses'] = [];
                     if (!back['bwfDomains']) back['bwfDomains'] = [];
@@ -46,7 +68,7 @@ function Sgfd(appConfig, options) {
 
                     // Verifies if has any full loading
                     if (back['full']) {
-                        back.full.forEach(function(conf) {
+                        back.full.forEach(function (conf) {
                             back.domainClasses.push(conf);
                             back.bwfDomains.push(conf);
                             back.controllers.push(conf);
@@ -54,7 +76,7 @@ function Sgfd(appConfig, options) {
                             back.views.push(conf);
                         });
                     }
-                    
+
                     // if not profuction flag, set to false
                     if (conf['production'] === undefined) conf.production = false;
 
@@ -78,7 +100,7 @@ function Sgfd(appConfig, options) {
                 }
 
                 // Then load all things
-                with (autoMerge(appConfig.front, appConfig.back, appConfig.conf)) {
+                with(autoMerge(appConfig.front, appConfig.back, appConfig.conf)) {
                     // Set default app title
                     document.title = appName;
 
@@ -92,45 +114,92 @@ function Sgfd(appConfig, options) {
                     }
 
                     // Load project dependencies
-                    progressiveLoad(dependencies, loadScript, function() {
+                    progressiveLoad(dependencies, loadScript, function () {
                         // Inject 'classLoader'
                         if (appConfig.conf['classLoader']) container['classLoader'] = new container[classLoader]();
 
                         // Inject 'database' access
                         if (appConfig.conf['dataPool']) container['dataPool'] = new container[dataPool]();
 
-                        // Inject 'pages' manager
-                        // TODO: create a page loader
-                        container['pages'] = new Object();
-
                         // Inject views names
                         container['views'] = [];
-                        views.forEach(function(view) {
+                        views.forEach(function (view) {
                             container.views.push(view);
                         });
 
+                        // Inject 'pages' manager
+                        if (appConfig.conf['pageLoader']) {
+                            container['pages'] = new container[pageLoader](container.views);
+                        } else {
+                            container['pages'] = new Object();
+                        }
+
+                        // Inject 'security' watcher
+                        if (appConfig.conf['securityWatcher']) container['watcher'] = new container[securityWatcher]();
+
+                        // Inject '_session'
+                        if (appConfig.conf['session']) {
+                            /**
+                             * Get session existent in localstorage
+                             */
+                            container.getSession = () => {
+                                return JSON.parse(localStorage.getItem('_session'))
+                            }
+
+                            /**
+                             * Remove session from localstorage
+                             */
+                            container.cleanSession = () => {
+                                localStorage.removeItem('_session')
+                            }
+
+                            /**
+                             * Sync session from localstorage to Sgfd
+                             */
+                            container.syncSession = () => {
+                                updateSession(container.getSession())
+                                exportSession()
+                            }
+
+                            /**
+                             * Session update function
+                             * @param params: the params object to include all properties into localstorage session
+                             */
+                            container.updateSession = (params) => {
+                                container.syncSession()
+                                if (params) {
+                                    _s = container.getSession() || {}
+                                    Object.keys(params).forEach((p) => {
+                                        _s[p] = params[p]
+                                    })
+                                    updateSession(_s)
+                                    exportSession()
+                                }
+                            }
+                        }
+
                         // Load back-end files
-                        progressiveLoad(domainClasses, loadDomain, function() {
-                            progressiveLoad(bridges, loadBridge, function() {
-                                progressiveLoad(services, loadService, function() {
-                                    progressiveLoad(controllers, loadController, function() {
+                        progressiveLoad(domainClasses, loadDomain, function () {
+                            progressiveLoad(bridges, loadBridge, function () {
+                                progressiveLoad(services, loadService, function () {
+                                    progressiveLoad(controllers, loadController, function () {
 
                                         // Map the classes to 'database'
                                         // TODO: change how to make this
-                                        progressiveLoad(['dataMappings.js'], loadScript, function() {
+                                        progressiveLoad(['dataMappings.js'], loadScript, function () {
                                             // If bootstrap data is set on
                                             if (bootstrap) {
                                                 progressiveLoad(['bootstrap.js'], loadScript);
                                             }
 
                                             // Load front-end files
-                                            progressiveLoad(externalScripts, loadScript, function() {
-                                                progressiveLoad(scripts, loadScriptAsset, function() {
-                                                    progressiveLoad(externalStyles, loadStyle, function() {
-                                                        progressiveLoad(styles, loadStyleAsset, function() {
-                                                            progressiveLoad(views, loadView, function() {
+                                            progressiveLoad(externalScripts, loadScript, function () {
+                                                progressiveLoad(scripts, loadScriptAsset, function () {
+                                                    progressiveLoad(externalStyles, loadStyle, function () {
+                                                        progressiveLoad(styles, loadStyleAsset, function () {
+                                                            progressiveLoad(views, loadView, function () {
                                                                 // Run main script
-                                                                progressiveLoad(['main.js'], loadScript, function() {
+                                                                progressiveLoad(['main.js'], loadScript, function () {
                                                                     // Set translated app title (if exsists)
                                                                     if (container['__']) document.title = __(appName);
                                                                 });
@@ -155,13 +224,13 @@ function Sgfd(appConfig, options) {
         /**
          * Initilizes the app
          */
-        init: function() {
+        init: function () {
             return this;
         },
         /**
          * Load the app using given configs
          */
-        load: function() {
+        load: function () {
             loader();
         }
     };
@@ -181,15 +250,15 @@ Sgfd.Base = {
      * 
      * TODO: work for custom containers (now only for window)
      */
-    progressiveLoad: function(lst, func, callback) {
+    progressiveLoad: function (lst, func, callback) {
         if (lst instanceof Array) {
             if (lst.length > 1) {
-                func(lst[0], function(){
+                func(lst[0], function () {
                     lst.shift();
                     Sgfd.Base.progressiveLoad(lst, func, callback);
                 });
             } else if (lst.length === 1) {
-                func(lst[0], callback || function(){});
+                func(lst[0], callback || function () {});
             } else {
                 callback();
             }
@@ -202,7 +271,7 @@ Sgfd.Base = {
     /**
      * Function responsible to fetch a custom file
      */
-    loadCustomFile: function(url, type, callback) {
+    loadCustomFile: function (url, type, callback) {
         // Adding the script tag to the head as suggested before
         var head = document.getElementsByTagName('head')[0];
         var script = document.createElement('script');
@@ -220,8 +289,8 @@ Sgfd.Base = {
     /**
      * Function responsible to fetch custom files
      */
-    loadCustomFiles: function(urls, type, callback) {
-        urls.forEach(function(url, i) {
+    loadCustomFiles: function (urls, type, callback) {
+        urls.forEach(function (url, i) {
             // Adding the script tag to the head as suggested before
             var head = document.getElementsByTagName('head')[0];
             var script = document.createElement('script');
@@ -242,7 +311,7 @@ Sgfd.Base = {
     /**
      * Function responsible to fetch scripts
      */
-    loadScript: function(url, callback) {
+    loadScript: function (url, callback) {
         // Adding the script tag to the head as suggested before
         var head = document.getElementsByTagName('head')[0];
         var script = document.createElement('script');
@@ -260,7 +329,7 @@ Sgfd.Base = {
     /**
      * Function responsible to fetch asset scripts
      */
-    loadScriptAsset: function(url, callback) {
+    loadScriptAsset: function (url, callback) {
         // Adding the script tag to the head as suggested before
         var head = document.getElementsByTagName('head')[0];
         var script = document.createElement('script');
@@ -278,8 +347,8 @@ Sgfd.Base = {
     /**
      * Function responsible to fetch asset scripts
      */
-    loadScriptAssets: function(urls, callback) {
-        urls.forEach(function(url, i) {
+    loadScriptAssets: function (urls, callback) {
+        urls.forEach(function (url, i) {
             // Adding the script tag to the head as suggested before
             var head = document.getElementsByTagName('head')[0];
             var script = document.createElement('script');
@@ -300,8 +369,8 @@ Sgfd.Base = {
     /**
      * Function responsible to fetch scripts
      */
-    loadScripts: function(urls, callback) {
-        urls.forEach(function(url, i) {
+    loadScripts: function (urls, callback) {
+        urls.forEach(function (url, i) {
             // Adding the script tag to the head as suggested before
             var head = document.getElementsByTagName('head')[0];
             var script = document.createElement('script');
@@ -322,7 +391,7 @@ Sgfd.Base = {
     /**
      * Function responsible to fetch bridge scripts
      */
-    loadBridge: function(url, callback) {
+    loadBridge: function (url, callback) {
         // Adding the script tag to the head as suggested before
         var head = document.getElementsByTagName('head')[0];
         var script = document.createElement('script');
@@ -340,8 +409,8 @@ Sgfd.Base = {
     /**
      * Function responsible to fetch service scripts
      */
-    loadBridges: function(urls, callback) {
-        urls.forEach(function(url, i) {
+    loadBridges: function (urls, callback) {
+        urls.forEach(function (url, i) {
             // Adding the script tag to the head as suggested before
             var head = document.getElementsByTagName('head')[0];
             var script = document.createElement('script');
@@ -362,7 +431,7 @@ Sgfd.Base = {
     /**
      * Function responsible to fetch service scripts
      */
-    loadService: function(url, callback) {
+    loadService: function (url, callback) {
         // Adding the script tag to the head as suggested before
         var head = document.getElementsByTagName('head')[0];
         var script = document.createElement('script');
@@ -380,8 +449,8 @@ Sgfd.Base = {
     /**
      * Function responsible to fetch service scripts
      */
-    loadServices: function(urls, callback) {
-        urls.forEach(function(url, i) {
+    loadServices: function (urls, callback) {
+        urls.forEach(function (url, i) {
             // Adding the script tag to the head as suggested before
             var head = document.getElementsByTagName('head')[0];
             var script = document.createElement('script');
@@ -402,7 +471,7 @@ Sgfd.Base = {
     /**
      * Function responsible to fetch controller scripts
      */
-    loadController: function(url, callback) {
+    loadController: function (url, callback) {
         // Adding the script tag to the head as suggested before
         var head = document.getElementsByTagName('head')[0];
         var script = document.createElement('script');
@@ -420,8 +489,8 @@ Sgfd.Base = {
     /**
      * Function responsible to fetch controller scripts
      */
-    loadControllers: function(urls, callback) {
-        urls.forEach(function(url, i) {
+    loadControllers: function (urls, callback) {
+        urls.forEach(function (url, i) {
             // Adding the script tag to the head as suggested before
             var head = document.getElementsByTagName('head')[0];
             var script = document.createElement('script');
@@ -442,7 +511,7 @@ Sgfd.Base = {
     /**
      * Function responsible to fetch view scripts
      */
-    loadView: function(url, callback) {
+    loadView: function (url, callback) {
         // Adding the script tag to the head as suggested before
         var head = document.getElementsByTagName('head')[0];
         var script = document.createElement('script');
@@ -460,8 +529,8 @@ Sgfd.Base = {
     /**
      * Function responsible to fetch view scripts
      */
-    loadViews: function(urls, callback) {
-        urls.forEach(function(url, i) {
+    loadViews: function (urls, callback) {
+        urls.forEach(function (url, i) {
             // Adding the script tag to the head as suggested before
             var head = document.getElementsByTagName('head')[0];
             var script = document.createElement('script');
@@ -482,7 +551,7 @@ Sgfd.Base = {
     /**
      * Function responsible to fetch domain scripts
      */
-    loadDomain: function(url, callback) {
+    loadDomain: function (url, callback) {
         // Adding the script tag to the head as suggested before
         var head = document.getElementsByTagName('head')[0];
         var script = document.createElement('script');
@@ -500,8 +569,8 @@ Sgfd.Base = {
     /**
      * Function responsible to fetch domain scripts
      */
-    loadDomains: function(urls, callback) {
-        urls.forEach(function(url, i) {
+    loadDomains: function (urls, callback) {
+        urls.forEach(function (url, i) {
             // Adding the script tag to the head as suggested before
             var head = document.getElementsByTagName('head')[0];
             var script = document.createElement('script');
@@ -522,7 +591,7 @@ Sgfd.Base = {
     /**
      * Function responsible to fetch bwf domain scripts
      */
-    loadBwfDomain: function(url, callback) {
+    loadBwfDomain: function (url, callback) {
         // Adding the script tag to the head as suggested before
         var head = document.getElementsByTagName('head')[0];
         var script = document.createElement('script');
@@ -538,8 +607,8 @@ Sgfd.Base = {
     /**
      * Function responsible to fetch bwf domain scripts
      */
-    loadBwfDomains: function(urls, callback) {
-        urls.forEach(function(url, i) {
+    loadBwfDomains: function (urls, callback) {
+        urls.forEach(function (url, i) {
             // Adding the script tag to the head as suggested before
             var head = document.getElementsByTagName('head')[0];
             var script = document.createElement('script');
@@ -560,7 +629,7 @@ Sgfd.Base = {
     /**
      * Function responsible to fetch stylesheets
      */
-    loadStyle: function(url, callback) {
+    loadStyle: function (url, callback) {
         // Adding the script tag to the head as suggested before
         var head = document.getElementsByTagName('head')[0];
         var style = document.createElement('link');
@@ -579,8 +648,8 @@ Sgfd.Base = {
     /**
      * Function responsible to fetch stylesheets
      */
-    loadStyles: function(urls, callback) {
-        urls.forEach(function(url, i) {
+    loadStyles: function (urls, callback) {
+        urls.forEach(function (url, i) {
             // Adding the script tag to the head as suggested before
             var head = document.getElementsByTagName('head')[0];
             var style = document.createElement('link');
@@ -602,7 +671,7 @@ Sgfd.Base = {
     /**
      * Function responsible to fetch asset stylesheets
      */
-    loadStyleAsset: function(url, callback) {
+    loadStyleAsset: function (url, callback) {
         // Adding the script tag to the head as suggested before
         var head = document.getElementsByTagName('head')[0];
         var style = document.createElement('link');
@@ -621,8 +690,8 @@ Sgfd.Base = {
     /**
      * Function responsible to fetch asset stylesheets
      */
-    loadStyleAssets: function(urls, callback) {
-        urls.forEach(function(url, i) {
+    loadStyleAssets: function (urls, callback) {
+        urls.forEach(function (url, i) {
             // Adding the script tag to the head as suggested before
             var head = document.getElementsByTagName('head')[0];
             var style = document.createElement('link');
@@ -644,16 +713,18 @@ Sgfd.Base = {
     /**
      * Used to merge many objects into a single one
      */
-    merge: function() {
+    merge: function () {
         var args = Array.prototype.slice.call(arguments);
         var result = {};
 
-        var merge_options = function(obj1, obj3){
-            for (var attrname in obj1) { obj3[attrname] = obj1[attrname]; }
+        var merge_options = function (obj1, obj3) {
+            for (var attrname in obj1) {
+                obj3[attrname] = obj1[attrname];
+            }
             return obj3;
         };
 
-        args.forEach(function(argument) {
+        args.forEach(function (argument) {
             result = merge_options(argument, result);
         });
 
@@ -662,16 +733,18 @@ Sgfd.Base = {
     /**
      * Used to merge many objects into a single one adding self
      */
-    autoMerge: function() {
+    autoMerge: function () {
         var args = Array.prototype.slice.call(arguments);
         var result = {};
 
-        var merge_options = function(obj1, obj3){
-            for (var attrname in obj1) { obj3[attrname] = obj1[attrname]; }
+        var merge_options = function (obj1, obj3) {
+            for (var attrname in obj1) {
+                obj3[attrname] = obj1[attrname];
+            }
             return obj3;
         };
 
-        args.forEach(function(argument) {
+        args.forEach(function (argument) {
             result = merge_options(argument, result);
         });
 
@@ -680,11 +753,11 @@ Sgfd.Base = {
     /**
      * Used for debug purposes
      */
-    trace: function(obj, key, args, callback) {
-        var metaName = ((obj.metaName !== undefined)
-            && (obj.metaName !== null)
-                && (obj.metaName !== '')) ?
-                    obj.metaName : 'NonMetaNamedClass';
+    trace: function (obj, key, args, callback) {
+        var metaName = ((obj.metaName !== undefined) &&
+                (obj.metaName !== null) &&
+                (obj.metaName !== '')) ?
+            obj.metaName : 'NonMetaNamedClass';
         console.log(metaName + '.' + key + '(', args, ')');
         if (callback) callback();
     }
@@ -694,7 +767,7 @@ Sgfd.Base = {
  * Represents a class to be used in routed objects creation
  * Is used by default to create Controllers, Services etc.
  */
-Sgfd.ConfigurableRoutedClass = function(routes, options) {
+Sgfd.ConfigurableRoutedClass = function (routes, options) {
     var c = this;
     c.prototype = {};
     var cbk = null;
@@ -703,36 +776,36 @@ Sgfd.ConfigurableRoutedClass = function(routes, options) {
         cbk = options.callback;
     }
 
-    c.prototype.init = function(op) {
-        Object.keys(routes).forEach(function(key) {
+    c.prototype.init = function (op) {
+        Object.keys(routes).forEach(function (key) {
             if (routes[key] instanceof Function) {
                 // If is debuggable
                 if (op.debug) {
                     // If dumps the database
                     if (op.transactional) {
-                        c.prototype[key] = function(args) {
-                             Sgfd.Base.trace(this, key, arguments, cbk);
+                        c.prototype[key] = function (args) {
+                            Sgfd.Base.trace(this, key, arguments, cbk);
                             //dump(dataPool.export('json'));
 
                             return routes[key].apply(this, arguments);
                         };
-                    // Not dump
+                        // Not dump
                     } else {
-                        c.prototype[key] = function(args) {
+                        c.prototype[key] = function (args) {
                             Sgfd.Base.trace(this, key, arguments, cbk);
                             return routes[key].apply(this, arguments);
                         };
                     }
-                // Not debuggable
+                    // Not debuggable
                 } else {
                     // transactional
                     if (op.transactional) {
-                        c.prototype[key] = function(args) {
+                        c.prototype[key] = function (args) {
                             //dump(dataPool.export('json'));
 
                             return routes[key].apply(this, arguments);
                         };
-                    // not transactional
+                        // not transactional
                     } else {
                         c.prototype[key] = routes[key];
                     }
@@ -750,7 +823,7 @@ Sgfd.ConfigurableRoutedClass = function(routes, options) {
 /**
  * Create a controller object based in ConfigurableRoutedClass
  */
-Sgfd.Controller = function(routes, options) {
+Sgfd.Controller = function (routes, options) {
     var _debug = undefined
     var _trans = undefined
     if (appConfig['conf']) {
@@ -779,7 +852,7 @@ Sgfd.Controller = function(routes, options) {
 /**
  * Create a service object based in ConfigurableRoutedClass
  */
-Sgfd.Service = function(routes, options) {
+Sgfd.Service = function (routes, options) {
     var _debug = undefined
     var _trans = undefined
     if (appConfig['conf']) {
@@ -808,7 +881,7 @@ Sgfd.Service = function(routes, options) {
 /**
  * Create a controller object based in ConfigurableRoutedClass
  */
-Sgfd.Bridge = function(routes, options) {
+Sgfd.Bridge = function (routes, options) {
     var _debug = undefined
     var _trans = undefined
     if (appConfig['conf']) {
@@ -837,6 +910,6 @@ Sgfd.Bridge = function(routes, options) {
 /**
  * @Override: Avoid others to get the code by this function
  */
-Sgfd.toString = function() {
+Sgfd.toString = function () {
     return 'function Sgfd() { [native code] }';
 };
