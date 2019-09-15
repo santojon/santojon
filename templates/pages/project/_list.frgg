@@ -1,0 +1,15 @@
+<div class="row no-gutters">
+    {% for project in projects =>
+        <div class="col-lg-6">
+            <a class="portfolio-item" href="{{ project.url }}">
+                <span class="caption">
+                    <span class="caption-content">
+                        <h2>{{ project.name }}</h2>
+                        <p class="mb-0">{{ project.description }}</p>
+                    </span>
+                </span>
+                <img class="img-fluid" src="{{ project.image }}" alt="">
+            </a>
+        </div>
+    %}
+</div>

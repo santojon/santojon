@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="@santojon's portifolio">
+    <meta name="author" content="Jonathan Santos (@santojon)">
+</head>
+
+<body id="page-top">
+    <!-- Required lib to start -->
+    <script type="text/javascript" src="../../libs/sgfd/sgfd.js"></script>
+
+    <!-- Navbar -->
+    <script type="text/frigga" src="templates/common/_navbar.frgg"></script>
+
+    <!-- Content -->
+    <div class="container-fluid p-0">
+
+        <!-- About -->
+        <script type="text/frigga" src="templates/common/body/_about.frgg"></script>
+        <hr class="m-0">
+
+        <!-- Experience -->
+        <script type="text/frigga" src="templates/common/body/_experience.frgg"></script>
+        <hr class="m-0">
+
+        <!-- Education -->
+        <script type="text/frigga" src="templates/common/body/_education.frgg"></script>
+        <hr class="m-0">
+
+        <!-- Skills -->
+        <script type="text/frigga" src="templates/common/body/_skills.frgg"></script>
+        <hr class="m-0">
+
+        <!-- Interests -->
+        <script type="text/frigga" src="templates/common/body/_interests.frgg"></script>
+        <hr class="m-0">
+
+        <!-- Portifolio -->
+        <script type="text/frigga" src="templates/common/body/_portifolio.frgg"></script>
+    </div>
+
+    <!-- Footer -->
+    <script type="text/frigga" src="templates/common/_footer.frgg"></script>
+
+    <!-- App init -->
+    <script type="text/javascript">
+        // Loads all needed things to run app. It need 'sgfd.js' loaded to work
+        new Sgfd('conf.js', {
+            externalSettings: '../../settings.js'
+        }).load()
+    </script>
+</body>
+
+</html>

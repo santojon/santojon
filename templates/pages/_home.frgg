@@ -1,0 +1,22 @@
+<!-- Home page -->
+<div id="home" class="main container">
+    <div class="home-logo-full">
+    </div>
+
+    <!-- Home landing page -->
+    <div class="home-content container-fluid">
+        <div class="col-md-12 col-sm-12 col-lg-12">
+            <h2 class="home_upper">__('Home')</h2>
+        </div>
+
+        {% for info in infos =>
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <h3 class="home_upper">__('User'): {{ info.firstName }} {{ info.lastName }}</h3>
+            </div>
+
+            <div id="{{ user.username || unreg_usrn }}" class="col-md-12 col-sm-12 col-lg-12">
+                __('Username'): {{ info.username || <code>not registered</code> }}
+            </div>
+        %}
+    </div>
+</div>

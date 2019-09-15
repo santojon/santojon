@@ -1,0 +1,7 @@
+Project: {
+    name: string,
+    description: string,
+    image: string,
+    url: string,
+    lastUpdate: Date
+}
