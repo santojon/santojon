@@ -5,7 +5,7 @@
                 <span class="caption">
                     <span class="caption-content">
                         <h2>{{ project.name }}</h2>
-                        <p class="mb-0">{{ project.description }}</p>
+                        <p class="mb-0">__('{{ project.description }}')</p>
                     </span>
                 </span>
                 <img class="img-fluid" src="{{ project.image }}" alt="">

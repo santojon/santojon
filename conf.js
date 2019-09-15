@@ -14,11 +14,11 @@ var appConfig = {
         ]
     },
     back: {
-        views: ['home', 'project'],
+        views: ['home', 'project', 'experience'],
         bridges: ['myjson'],
-        bwfDomains: ['project'],
-        services: ['myjsonbridge', 'project'],
-        controllers: ['home', 'project']
+        bwfDomains: ['project', 'experience'],
+        services: ['myjsonbridge', 'project', 'experience'],
+        controllers: ['home', 'project', 'experience']
     },
     conf: {
         appName: 'Jonathan Santos (@santojon)',
@@ -36,7 +36,7 @@ var appConfig = {
         securityWatcher: 'Hdllr',
         session: true,
         bwfDomain: true,
-        bootstrap: true,
+        bootstrap: false,
         debug: {
             controllers: true,
             services: true,

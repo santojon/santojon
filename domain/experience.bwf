@@ -1,0 +1,10 @@
+Experience: {
+    title: string,
+    company: string,
+    companyDescription: string,
+    description: string,
+    image: string,
+    url: string,
+    startDate: Date,
+    endDate: Date
+}

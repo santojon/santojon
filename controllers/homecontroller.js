@@ -6,8 +6,16 @@ with(Sgfd.Base) {
         /**
          * Homepage
          */
-        index() {
+        index(params) {
+            if (params) {
+                if (params.projects) {
+                    pages.Project()
+                }
 
+                if (params.experiences) {
+                    pages.Experience()
+                }
+            }
         }
     })
 }

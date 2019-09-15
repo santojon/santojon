@@ -2,4 +2,7 @@
 syncSession()
 
 // open application homepage
-pages.Project()
+pages.Home({
+    projects: true,
+    experiences: true
+})

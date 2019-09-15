@@ -5,6 +5,6 @@
 pages.Home = function (params) {
     // add direct support for HomeController functions
     with(HomeController) {
-        index()
+        index(params)
     }
 }

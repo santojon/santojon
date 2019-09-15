@@ -3,7 +3,7 @@
  * @param params: params object used to load different user areas
  */
 pages.Project = (params) => {
-    // add direct support for UserController functions
+    // add direct support for ProjectController functions
     with(ProjectController) {
         if (params) {
             if (params.projects) {

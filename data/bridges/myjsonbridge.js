@@ -4,7 +4,8 @@ with(Sgfd.Base) {
         type: 'json',
         base: 'https://api.myjson.com/bins',
         paths: {
-            projects: '18bk0d'
+            projects: '18bk0d',
+            experiences: 'i1af9'
         },
         bridgeTo: (to) => {
             with(MyjsonBridge) {
