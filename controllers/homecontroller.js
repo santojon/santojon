@@ -8,6 +8,10 @@ with(Sgfd.Base) {
          */
         index(params) {
             if (params) {
+                if (params.user) {
+                    pages.User()
+                }
+
                 if (params.projects) {
                     pages.Project()
                 }

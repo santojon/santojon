@@ -3,6 +3,7 @@ syncSession()
 
 // open application homepage
 pages.Home({
+    user: true,
     projects: true,
     experiences: true
 })

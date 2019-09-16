@@ -1,0 +1,19 @@
+User: {
+    firstName: string,
+    lastName: string,
+    username: string,
+    password: Password,
+    address: string,
+    locationInfo: string,
+    phone: string,
+    email: string,
+    about: string,
+    image: string,
+    interests: [string],
+    social: {
+        facebook: string,
+        linkedin: string,
+        twitter: string,
+        github: string
+    }
+}

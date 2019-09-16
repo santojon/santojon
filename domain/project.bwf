@@ -3,5 +3,6 @@ Project: {
     description: string,
     image: string,
     url: string,
-    lastUpdate: Date
+    lastUpdate: Date,
+    owner: User
 }

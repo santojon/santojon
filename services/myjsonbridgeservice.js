@@ -3,12 +3,24 @@ with(MyjsonBridge) {
         metaName: 'MyjsonbridgeService',
 
         /**
+         * Get users from bridge
+         */
+        fetchUsers: () => {
+            return $.get(MyjsonBridge.bridgeTo('users'), (users, textStatus, jqXHR) => {
+                users.forEach((user) => {
+                    new User(user).save()
+                })
+            })
+        },
+
+        /**
          * Get projects from bridge
          */
         fetchProjects: () => {
             return $.get(MyjsonBridge.bridgeTo('projects'), (projects, textStatus, jqXHR) => {
                 projects.forEach((project) => {
                     project.lastUpdate = new Date(project.lastUpdate)
+                    project.owner = User.find({ username: project.owner })
                     new Project(project).save()
                 })
             })

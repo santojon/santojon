@@ -1,0 +1,25 @@
+<div class="container">
+    <ul class="list-inline mb-5">
+        <li class="list-inline-item">
+            <a class="social-link rounded-circle text-white mr-3" href="{{ user.social.linkedin }}">
+                <i class="icon-social-linkedin"></i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="social-link rounded-circle text-white mr-3" href="{{ user.social.facebook }}">
+                <i class="icon-social-facebook"></i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="social-link rounded-circle text-white mr-3" href="{{ user.social.twitter }}">
+                <i class="icon-social-twitter"></i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="social-link rounded-circle text-white" href="{{ user.social.github }}">
+                <i class="icon-social-github"></i>
+            </a>
+        </li>
+    </ul>
+    <p class="text-muted small mb-0">Copyright &copy; {{ user.firstName }} {{ user.lastName }} 2019</p>
+</div>

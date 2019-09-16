@@ -13,7 +13,9 @@ pages.Project = (params) => {
             // Resolve promisse and update the view with projects
             getProjects().then(() => {
                 pages.Project({
-                    projects: Project.findAll().orderBy('lastUpdate', 'desc')
+                    projects: Project.findWhere((project) => {
+                        return project.owner.username == user.username
+                    }).orderBy('lastUpdate', 'desc')
                 })
             })
         }
