@@ -1,8 +1,23 @@
+/**
+ * Experience related
+ */
 .img-experience {
     float: left;
-    max-width: 200px;
+    max-width: 120px;
 }
 
 .portfolio-item .caption .caption-content.caption-content-experience {
-    margin: auto 2rem 2rem 20rem !important;
+    margin: 2rem 2rem 2rem 15rem !important;
+}
+
+/**
+ * Portifolio related
+ */
+.portfolio-item.project-item {
+    height: 360px;
+}
+
+.portfolio-item.project-item>.img-fluid {
+    width: 530px;
+    height: 360px;
 }

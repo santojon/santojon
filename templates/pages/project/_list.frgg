@@ -1,7 +1,7 @@
 <div class="row no-gutters">
     {% for project in projects =>
         <div class="col-lg-6">
-            <a class="portfolio-item" href="{{ project.url }}">
+            <a class="portfolio-item project-item" href="{{ project.url }}">
                 <span class="caption">
                     <span class="caption-content">
                         <h2>{{ project.name }}</h2>

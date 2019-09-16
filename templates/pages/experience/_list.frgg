@@ -2,16 +2,16 @@
     <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
         <div class="resume-content">
             <h3 class="mb-0">__('{{ experience.title }}')</h3>
-            <a class="portfolio-item" href="{{ experience.url }}">
+            <a class="portfolio-item" href="{{ experience.company.url }}">
                 <span class="caption">
                     <span class="caption-content caption-content-experience">
                         <p class="mb-0">
-                            <div class="subheading mb-3">{{ experience.company }}</div>
-                            <h2>{{ experience.companyDescription}}</h2>
+                            <h2>{{ experience.company.name }}</h2>
+                            <div class="mb-0">{{ experience.company.description }}</div>
                         </p>
                     </span>
                 </span>
-                <img class="img-fluid img-experience" src="{{ experience.image }}" alt="">
+                <img class="img-fluid img-experience" src="{{ experience.company.image }}" alt="">
             </a>
             <p></p>
             <p>__('{{ experience.description }}')</p>

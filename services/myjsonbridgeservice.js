@@ -20,6 +20,7 @@ with(MyjsonBridge) {
         fetchExperiences: () => {
             return $.get(MyjsonBridge.bridgeTo('experiences'), (experiences, textStatus, jqXHR) => {
                 experiences.forEach((experience) => {
+                    experience.company = new Institution(experience.company)
                     experience.startDate = new Date(experience.startDate)
                     if (experience.endDate) {
                         experience.endDate = new Date(experience.endDate)
