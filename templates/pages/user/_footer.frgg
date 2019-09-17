@@ -6,8 +6,8 @@
             </a>
         </li>
         <li class="list-inline-item">
-            <a class="social-link rounded-circle text-white mr-3" href="{{ user.social.facebook }}">
-                <i class="icon-social-facebook"></i>
+            <a class="social-link rounded-circle text-white" href="{{ user.social.github }}">
+                <i class="icon-social-github"></i>
             </a>
         </li>
         <li class="list-inline-item">
@@ -16,8 +16,13 @@
             </a>
         </li>
         <li class="list-inline-item">
-            <a class="social-link rounded-circle text-white" href="{{ user.social.github }}">
-                <i class="icon-social-github"></i>
+            <a class="social-link rounded-circle text-white mr-3" href="{{ user.social.facebook }}">
+                <i class="icon-social-facebook"></i>
+            </a>
+        </li>
+        <li class="list-inline-item">
+            <a class="social-link rounded-circle text-white mr-3" href="{{ user.social.instagram }}">
+                <i class="icon-social-instagram"></i>
             </a>
         </li>
     </ul>

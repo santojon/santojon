@@ -1,5 +1,5 @@
 <h2 class="mb-0">{{ user.firstName }}
-    <span class="text-primary">{{ user.firstName }}</span>
+    <span class="text-primary">{{ user.lastName }}</span>
 </h2>
 <div class="subheading mb-5">{{ user.address }} · {{ user.locationInfo }} · {{ user.phone }}
     <a href="mailto:{{ user.email }}">{{ user.email }}</a>
@@ -17,5 +17,8 @@
     </a>
     <a href="{{ user.social.facebook }}">
         <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="{{ user.social.instagram }}">
+        <i class="fab fa-instagram"></i>
     </a>
 </div>

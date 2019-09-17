@@ -1,3 +1,10 @@
-{% for interest in user.interests =>
-    <p>__('{{ interest }}')</p>
-%}
+<ul class="fa-ul mb-0">
+    {% for interest in user.interests =>
+        <li>
+            <p>
+                <i class="fa-li fa fa-check"></i>
+                __('{{ interest }}')
+            </p>
+        </li>
+    %}
+</ul>
