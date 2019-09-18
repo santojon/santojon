@@ -36,7 +36,7 @@ pages.attach(
  */
 pages.attach(
     'load_user_info',
-    'templates/pages/user/_info.frgg',
+    'templates/pages/user/_about.frgg',
     'user'
 )
 
@@ -45,7 +45,7 @@ pages.attach(
  */
 pages.attach(
     'load_user_info_navbar',
-    'templates/pages/user/_info_navbar.frgg',
+    'templates/pages/user/_navbar.frgg',
     'user-info'
 )
 
