@@ -1,4 +1,8 @@
 <div class="container">
+    <h4 class="mb-5">
+        <i class="icon-phone"></i>&nbsp;&nbsp; {{ user.phone }}
+    </h4>
+
     <ul class="list-inline mb-5">
         <li class="list-inline-item">
             <a class="social-link rounded-circle text-white mr-3" href="{{ user.social.linkedin }}">
@@ -6,7 +10,7 @@
             </a>
         </li>
         <li class="list-inline-item">
-            <a class="social-link rounded-circle text-white" href="{{ user.social.github }}">
+            <a class="social-link rounded-circle text-white mr-3" href="{{ user.social.github }}">
                 <i class="icon-social-github"></i>
             </a>
         </li>

@@ -1,5 +1,7 @@
-<footer class="footer text-center">
+<section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="footer">
+    <footer class="footer text-center">
 
-    <!-- User Footer -->
-    <user-footer></user-footer>
-</footer>
+        <!-- User Footer -->
+        <user-footer></user-footer>
+    </footer>
+</section>

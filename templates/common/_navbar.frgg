@@ -28,6 +28,9 @@
             <li class="nav-item">
                 <a class="nav-link js-scroll-trigger" href="#portifolio">__('Projects')</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#footer">__('Contact')</a>
+            </li>
         </ul>
     </div>
 </nav>
