@@ -1,7 +1,12 @@
 <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="footer">
-    <footer class="footer text-center">
+    <div class="w-100">
+        <h2 class="mb-5">__('Contact')</h2>
 
-        <!-- User Footer -->
-        <user-footer></user-footer>
-    </footer>
+        <footer class="footer text-center">
+
+            <!-- User Footer -->
+            <user-footer></user-footer>
+
+        </footer>
+    </div>
 </section>

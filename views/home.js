@@ -6,5 +6,10 @@ pages.Home = function (params) {
     // add direct support for HomeController functions
     with(HomeController) {
         index(params)
+
+        setTimeout(() => {
+            $('#body-content').removeClass('hidden-body')
+            $('#loader').addClass('hidden-body')
+        }, 2000)
     }
 }
