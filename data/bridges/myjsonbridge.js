@@ -6,7 +6,8 @@ with(Sgfd.Base) {
         paths: {
             projects: '18bk0d',
             experiences: 'i1af9',
-            users: '14208d'
+            users: '14208d',
+            institutions: '92ecl'
         },
         bridgeTo: (to) => {
             with(MyjsonBridge) {

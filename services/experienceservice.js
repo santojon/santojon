@@ -1,4 +1,9 @@
-with(MyjsonbridgeService) {
+with(
+    Sgfd.Base.merge(
+        MyjsonbridgeService,
+        InstitutionService
+    )
+) {
     /**
      * The service that process and manage Experience related data
      */
@@ -8,7 +13,9 @@ with(MyjsonbridgeService) {
          * Get all the experiences from DB
          */
         getAllExperiences() {
-            return fetchExperiences()
+            return getAllInstitutions().then(() => {
+                return fetchExperiences()
+            })
         }
     })
 }

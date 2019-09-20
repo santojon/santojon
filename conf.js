@@ -17,7 +17,7 @@ var appConfig = {
         views: ['home', 'user', 'project', 'experience'],
         bridges: ['myjson'],
         bwfDomains: ['user', 'project', 'institution', 'experience'],
-        services: ['myjsonbridge', 'user', 'project', 'experience'],
+        services: ['myjsonbridge', 'user', 'project', 'institution', 'experience'],
         controllers: ['home', 'user', 'project', 'experience']
     },
     conf: {

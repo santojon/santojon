@@ -2,6 +2,7 @@
 dataPool.map(
     User,
     Project,
+    Institution,
     Experience
 )
 
@@ -9,6 +10,7 @@ dataPool.map(
 Loki.lokify(
     User,
     Project,
+    Institution,
     Experience
 )
 

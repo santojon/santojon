@@ -14,6 +14,17 @@ with(MyjsonBridge) {
         },
 
         /**
+         * Get institutions from bridge
+         */
+        fetchInstitutions: () => {
+            return $.get(MyjsonBridge.bridgeTo('institutions'), (institutions, textStatus, jqXHR) => {
+                institutions.forEach((institution) => {
+                    new Institution(institution).save()
+                })
+            })
+        },
+
+        /**
          * Get projects from bridge
          */
         fetchProjects: () => {
@@ -34,7 +45,9 @@ with(MyjsonBridge) {
         fetchExperiences: () => {
             return $.get(MyjsonBridge.bridgeTo('experiences'), (experiences, textStatus, jqXHR) => {
                 experiences.forEach((experience) => {
-                    experience.company = new Institution(experience.company)
+                    experience.company = Institution.find({
+                        name: experience.company
+                    })
                     experience.user = User.find({
                         username: experience.user
                     })
