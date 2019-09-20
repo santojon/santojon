@@ -20,7 +20,9 @@ with(MyjsonBridge) {
             return $.get(MyjsonBridge.bridgeTo('projects'), (projects, textStatus, jqXHR) => {
                 projects.forEach((project) => {
                     project.lastUpdate = new Date(project.lastUpdate)
-                    project.owner = User.find({ username: project.owner })
+                    project.owner = User.find({
+                        username: project.owner
+                    })
                     new Project(project).save()
                 })
             })
@@ -33,6 +35,9 @@ with(MyjsonBridge) {
             return $.get(MyjsonBridge.bridgeTo('experiences'), (experiences, textStatus, jqXHR) => {
                 experiences.forEach((experience) => {
                     experience.company = new Institution(experience.company)
+                    experience.user = User.find({
+                        username: experience.user
+                    })
                     experience.startDate = new Date(experience.startDate)
                     if (experience.endDate) {
                         experience.endDate = new Date(experience.endDate)

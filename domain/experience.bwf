@@ -3,5 +3,6 @@ Experience: {
     company: Institution,
     description: string,
     startDate: Date,
-    endDate: Date
+    endDate: Date,
+    user: User
 }

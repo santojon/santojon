@@ -15,6 +15,8 @@ with(UserService) {
             pages.load_user_info_navbar()
             pages.load_user_interests()
             pages.load_user_footer()
+            pages.load_user_skills_languages()
+            pages.load_user_skills_qualifications()
         },
 
         /**

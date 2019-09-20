@@ -1,0 +1,8 @@
+<ul class="fa-ul mb-0">
+    {% for qualification in user.skills.qualifications =>
+        <li>
+            <i class="fa-li fa fa-check"></i>
+            {{ qualification }}</li>
+        <li>
+    %}
+</ul>

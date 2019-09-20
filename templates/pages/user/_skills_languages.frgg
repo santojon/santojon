@@ -1,0 +1,10 @@
+<ul class="list-inline dev-icons">
+    {% for language in user.skills.languages =>
+        <li class="list-inline-item">
+            <i class="fab fa-{{ language }}"></i>
+            <h6>
+                <code>{{ language }}</code>
+            </h6>
+        </li>
+    %}
+</ul>

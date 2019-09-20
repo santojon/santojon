@@ -59,6 +59,21 @@ pages.attach(
 )
 
 /**
+ * Default user skills
+ */
+pages.attach(
+    'load_user_skills_languages',
+    'templates/pages/user/_skills_languages.frgg',
+    'languages'
+)
+
+pages.attach(
+    'load_user_skills_qualifications',
+    'templates/pages/user/_skills_qualifications.frgg',
+    'qualifications'
+)
+
+/**
  * Default user footer data
  */
 pages.attach(

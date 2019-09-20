@@ -15,5 +15,9 @@ User: {
         linkedin: string,
         twitter: string,
         github: string
+    },
+    skills: {
+        languages: [string],
+        qualifications: [string]
     }
 }

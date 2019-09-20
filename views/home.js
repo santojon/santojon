@@ -7,9 +7,20 @@ pages.Home = function (params) {
     with(HomeController) {
         index(params)
 
+        // Loader related
+        while (User.findAll() === []) {
+            if (!$('#body-content').hasClass('hidden-body')) {
+                $('#body-content').addClass('hidden-body')
+            }
+
+            if ($('#loader').hasClass('hidden-body')) {
+                $('#loader').removeClass('hidden-body')
+            }
+        }
+
         setTimeout(() => {
             $('#body-content').removeClass('hidden-body')
             $('#loader').addClass('hidden-body')
-        }, 2000)
+        }, 1000)
     }
 }
