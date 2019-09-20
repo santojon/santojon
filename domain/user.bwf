@@ -19,5 +19,6 @@ User: {
     skills: {
         languages: [string],
         qualifications: [string]
-    }
+    },
+    translations: string
 }

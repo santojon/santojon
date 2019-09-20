@@ -1,8 +1,9 @@
 var _language = {
-    Home: 'Página inicial',
-    Test: 'Teste',
-    User: 'Usuário',
-    Users: 'Usuários',
-    Username: 'Username',
-    'User Home': 'Página inicial de Usuários'
+    About: 'Sobre',
+    Experience: 'Experiência',
+    Education: 'Educação',
+    Skills: 'Habilidades',
+    Interests: 'Interesses',
+    Projects: 'Projetos',
+    Contact: 'Contato'
 }

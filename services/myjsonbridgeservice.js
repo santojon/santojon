@@ -8,7 +8,22 @@ with(MyjsonBridge) {
         fetchUsers: () => {
             return $.get(MyjsonBridge.bridgeTo('users'), (users, textStatus, jqXHR) => {
                 users.forEach((user) => {
-                    new User(user).save()
+                    new User(user).save(() => {
+                        // Get user language translations after save (if given)
+                        if (user.translations) {
+                            $.get(user.translations, (translations, textStatus, jqXHR) => {
+                                // Update App translations
+                                if (_language) {
+                                    _language = Sgfd.Base.merge(
+                                        _language,
+                                        translations
+                                    )
+                                } else {
+                                    _language = translations
+                                }
+                            })
+                        }
+                    })
                 })
             })
         },
