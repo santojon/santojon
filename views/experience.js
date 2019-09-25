@@ -12,9 +12,13 @@ pages.Experience = (params) => {
         } else {
             // Resolve promisse and update the view with projects
             getExperiences().then(() => {
-                pages.Experience({
-                    experiences: Experience.findAll().orderBy('startDate', 'desc')
-                })
+                setTimeout(() => {
+                    pages.Experience({
+                        experiences: Experience.findWhere((experience) => {
+                            return experience.user.username == user.username
+                        }).orderBy('startDate', 'desc')
+                    })
+                }, 1000)
             })
         }
     }

@@ -12,9 +12,11 @@ pages.User = (params) => {
         } else {
             // Resolve promisse and update the view with user
             getUsers().then(() => {
-                pages.User({
-                    user: User.find({ username: 'santojon' })
-                })
+                setTimeout(() => {
+                    pages.User({
+                        user: User.find({ username: 'santojon' })
+                    })
+                }, 1000)
             })
         }
     }

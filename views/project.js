@@ -12,11 +12,13 @@ pages.Project = (params) => {
         } else {
             // Resolve promisse and update the view with projects
             getProjects().then(() => {
-                pages.Project({
-                    projects: Project.findWhere((project) => {
-                        return project.owner.username == user.username
-                    }).orderBy('lastUpdate', 'desc')
-                })
+                setTimeout(() => {
+                    pages.Project({
+                        projects: Project.findWhere((project) => {
+                            return project.owner.username == user.username
+                        }).orderBy('lastUpdate', 'desc')
+                    })
+                }, 1000)
             })
         }
     }

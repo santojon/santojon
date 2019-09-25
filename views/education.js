@@ -12,9 +12,13 @@ pages.Education = (params) => {
         } else {
             // Resolve promisse and update the view with projects
             getEducationList().then(() => {
-                pages.Education({
-                    educationList: Education.findAll().orderBy('startDate', 'desc')
-                })
+                setTimeout(() => {
+                    pages.Education({
+                        educationList: Education.findWhere((education) => {
+                            return education.user.username == user.username
+                        }).orderBy('startDate', 'desc')
+                    })
+                }, 1000)
             })
         }
     }
