@@ -2,7 +2,7 @@
     {% for qualification in user.skills.qualifications =>
         <li>
             <i class="fa-li fa fa-check"></i>
-            {{ qualification }}</li>
+            __('{{ qualification }}')</li>
         <li>
     %}
 </ul>
