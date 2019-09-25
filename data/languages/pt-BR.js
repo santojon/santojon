@@ -1,9 +1,21 @@
 var _language = {
+    /**
+     * Menus
+     */
     About: 'Sobre',
     Experience: 'Experiência',
     Education: 'Educação',
     Skills: 'Habilidades',
     Interests: 'Interesses',
     Projects: 'Projetos',
-    Contact: 'Contato'
+    Contact: 'Contato',
+
+    /**
+     * Extra strings for areas
+     */
+    Present: 'Atual',
+    'Programming Languages': 'Linguagens de Programação',
+    Tools: 'Ferramentas',
+    Workflow: 'Fluxo de Trabalho',
+    Qualifications: 'Qualificações'
 }
