@@ -20,5 +20,5 @@ User: {
         languages: [string],
         qualifications: [string]
     },
-    translations: string
+    translations: object
 }

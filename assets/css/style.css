@@ -11,6 +11,18 @@
 }
 
 /**
+ * Education related
+ */
+ .img-education {
+    float: left;
+    max-width: 200px;
+}
+
+.portfolio-item .caption .caption-content.caption-content-education {
+    margin: 2rem 2rem 2rem 15rem !important;
+}
+
+/**
  * Portifolio related
  */
 .portfolio-item.project-item {

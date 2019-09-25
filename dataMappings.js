@@ -3,7 +3,8 @@ dataPool.map(
     User,
     Project,
     Institution,
-    Experience
+    Experience,
+    Education
 )
 
 // used to inter-object casting
@@ -11,7 +12,8 @@ Loki.lokify(
     User,
     Project,
     Institution,
-    Experience
+    Experience,
+    Education
 )
 
 // static page mappings (for Frgg pages)
@@ -31,6 +33,15 @@ pages.attach(
     'load_experiences',
     'templates/pages/experience/_list.frgg',
     'experiences'
+)
+
+/**
+ * Education page
+ */
+pages.attach(
+    'load_education_list',
+    'templates/pages/education/_list.frgg',
+    'education-list'
 )
 
 /**

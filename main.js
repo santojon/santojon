@@ -5,5 +5,6 @@ syncSession()
 pages.Home({
     user: true,
     projects: true,
+    education: true,
     experiences: true
 })

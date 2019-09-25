@@ -16,6 +16,10 @@ with(Sgfd.Base) {
                     pages.Project()
                 }
 
+                if (params.education) {
+                    pages.Education()
+                }
+
                 if (params.experiences) {
                     pages.Experience()
                 }

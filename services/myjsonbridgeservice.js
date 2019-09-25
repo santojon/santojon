@@ -10,8 +10,8 @@ with(MyjsonBridge) {
                 users.forEach((user) => {
                     new User(user).save(() => {
                         // Get user language translations after save (if given)
-                        if (user.translations) {
-                            $.get(user.translations, (translations, textStatus, jqXHR) => {
+                        if (user.translations && user.translations[appConfig.conf.language]) {
+                            $.get(user.translations[appConfig.conf.language], (translations, textStatus, jqXHR) => {
                                 // Update App translations
                                 if (_language) {
                                     _language = Sgfd.Base.merge(
@@ -50,6 +50,29 @@ with(MyjsonBridge) {
                         username: project.owner
                     })
                     new Project(project).save()
+                })
+            })
+        },
+
+        /**
+         * Get education from bridge
+         */
+        fetchEducationList: () => {
+            return $.get(MyjsonBridge.bridgeTo('education'), (educationList, textStatus, jqXHR) => {
+                educationList.forEach((education) => {
+                    education.institution = Institution.find({
+                        name: education.institution
+                    })
+                    education.user = User.find({
+                        username: education.user
+                    })
+                    education.startDate = new Date(education.startDate)
+                    if (education.endDate) {
+                        education.endDate = new Date(education.endDate)
+                    } else {
+                        education.endDate = __('Present')
+                    }
+                    new Education(education).save()
                 })
             })
         },

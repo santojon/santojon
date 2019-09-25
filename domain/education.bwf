@@ -1,0 +1,7 @@
+Education: {
+    course: string,
+    institution: Institution,
+    startDate: Date,
+    endDate: Date,
+    user: User
+}

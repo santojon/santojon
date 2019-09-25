@@ -14,11 +14,11 @@ var appConfig = {
         ]
     },
     back: {
-        views: ['home', 'user', 'project', 'experience'],
+        views: ['home', 'user', 'project', 'experience', 'education'],
         bridges: ['myjson'],
-        bwfDomains: ['user', 'project', 'institution', 'experience'],
-        services: ['myjsonbridge', 'user', 'project', 'institution', 'experience'],
-        controllers: ['home', 'user', 'project', 'experience']
+        bwfDomains: ['user', 'project', 'institution', 'experience', 'education'],
+        services: ['myjsonbridge', 'user', 'project', 'institution', 'experience', 'education'],
+        controllers: ['home', 'user', 'project', 'experience', 'education']
     },
     conf: {
         appName: 'Jonathan Santos (@santojon)',
