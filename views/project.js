@@ -18,7 +18,7 @@ pages.Project = (params) => {
                             return project.owner.username == user.username
                         }).orderBy('lastUpdate', 'desc')
                     })
-                }, 1000)
+                }, 3000)
             })
         }
     }
