@@ -1,3 +1,3 @@
 # santojon
 
-Protifolio Resume App
+Jonathan Santos
