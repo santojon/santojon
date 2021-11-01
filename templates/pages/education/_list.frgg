@@ -1,21 +1,21 @@
 {% for education in educationList =>
-    <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-        <div class="resume-content">
-            <h3 class="mb-0">__('{{ education.course }}')</h3>
-            <a class="portfolio-item" href="{{ education.institution.url }}">
-                <span class="caption">
-                    <span class="caption-content caption-content-education">
-                        <p class="mb-0">
-                            <h2>{{ education.institution.name }}</h2>
-                            <div class="mb-0">{{ education.institution.description }}</div>
-                        </p>
-                    </span>
+<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+    <div class="resume-content">
+        <h3 class="mb-0">__('{{ education.course }}')</h3>
+        <a class="portfolio-item" href="{{ education.institution.url }}">
+            <span class="caption">
+                <span class="caption-content caption-content-education">
+                    <p class="mb-0">
+                    <h2>__('{{ education.institution.name }}')</h2>
+                    <div class="mb-0">__('{{ education.institution.description }}')</div>
+                    </p>
                 </span>
-                <img class="img-fluid img-education" src="{{ education.institution.image }}" alt="">
-            </a>
-        </div>
-        <div class="resume-date text-md-right">
-            <span class="text-primary">{{ education.startDate }} - {{ education.endDate }}</span>
-        </div>
+            </span>
+            <img class="img-fluid img-education" src="{{ education.institution.image }}" alt="">
+        </a>
     </div>
+    <div class="resume-date text-md-right">
+        <span class="text-primary">{{ education.startDate }} - {{ education.endDate }}</span>
+    </div>
+</div>
 %}

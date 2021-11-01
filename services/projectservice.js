@@ -1,4 +1,4 @@
-with(MyjsonbridgeService) {
+with (DataBridgeService) {
     /**
      * The service that process and manage Project related data
      */

@@ -1,12 +1,12 @@
-with(MyjsonBridge) {
-    var MyjsonbridgeService = new Sgfd.Service({
-        metaName: 'MyjsonbridgeService',
+with (DataBridge) {
+    var DataBridgeService = new Sgfd.Service({
+        metaName: 'DataBridgeService',
 
         /**
          * Get users from bridge
          */
         fetchUsers: () => {
-            return $.get(MyjsonBridge.bridgeTo('users'), (users, textStatus, jqXHR) => {
+            return $.get(DataBridge.bridgeTo('users'), (users, textStatus, jqXHR) => {
                 users.forEach((user) => {
                     new User(user).save(() => {
                         // Get user language translations after save (if given)
@@ -32,7 +32,7 @@ with(MyjsonBridge) {
          * Get institutions from bridge
          */
         fetchInstitutions: () => {
-            return $.get(MyjsonBridge.bridgeTo('institutions'), (institutions, textStatus, jqXHR) => {
+            return $.get(DataBridge.bridgeTo('institutions'), (institutions, textStatus, jqXHR) => {
                 institutions.forEach((institution) => {
                     new Institution(institution).save()
                 })
@@ -43,7 +43,7 @@ with(MyjsonBridge) {
          * Get projects from bridge
          */
         fetchProjects: () => {
-            return $.get(MyjsonBridge.bridgeTo('projects'), (projects, textStatus, jqXHR) => {
+            return $.get(DataBridge.bridgeTo('projects'), (projects, textStatus, jqXHR) => {
                 projects.forEach((project) => {
                     project.lastUpdate = new Date(project.lastUpdate)
                     project.owner = User.find({
@@ -58,7 +58,7 @@ with(MyjsonBridge) {
          * Get education from bridge
          */
         fetchEducationList: () => {
-            return $.get(MyjsonBridge.bridgeTo('education'), (educationList, textStatus, jqXHR) => {
+            return $.get(DataBridge.bridgeTo('education'), (educationList, textStatus, jqXHR) => {
                 educationList.forEach((education) => {
                     education.institution = Institution.find({
                         name: education.institution
@@ -81,7 +81,7 @@ with(MyjsonBridge) {
          * Get experiences from bridge
          */
         fetchExperiences: () => {
-            return $.get(MyjsonBridge.bridgeTo('experiences'), (experiences, textStatus, jqXHR) => {
+            return $.get(DataBridge.bridgeTo('experiences'), (experiences, textStatus, jqXHR) => {
                 experiences.forEach((experience) => {
                     experience.company = Institution.find({
                         name: experience.company

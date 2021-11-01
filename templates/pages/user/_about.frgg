@@ -1,7 +1,7 @@
 <h2 class="mb-0">{{ user.firstName }}
     <span class="text-primary">{{ user.lastName }}</span>
 </h2>
-<div class="subheading mb-5">{{ user.address }} · {{ user.locationInfo }} · {{ user.phone }}
+<div class="subheading mb-5">__('{{ user.address }}') · __('{{ user.locationInfo }}') · {{ user.phone }}
     <a href="mailto:{{ user.email }}">{{ user.email }}</a>
 </div>
 <p class="lead mb-5">__('{{ user.about }}')</p>

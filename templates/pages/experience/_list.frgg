@@ -1,23 +1,23 @@
 {% for experience in experiences =>
-    <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-        <div class="resume-content">
-            <h3 class="mb-0">__('{{ experience.title }}')</h3>
-            <a class="portfolio-item" href="{{ experience.company.url }}">
-                <span class="caption">
-                    <span class="caption-content caption-content-experience">
-                        <p class="mb-0">
-                            <h2>{{ experience.company.name }}</h2>
-                            <div class="mb-0">{{ experience.company.description }}</div>
-                        </p>
-                    </span>
+<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+    <div class="resume-content">
+        <h3 class="mb-0">__('{{ experience.title }}')</h3>
+        <a class="portfolio-item" href="{{ experience.company.url }}">
+            <span class="caption">
+                <span class="caption-content caption-content-experience">
+                    <p class="mb-0">
+                    <h2>__('{{ experience.company.name }}')</h2>
+                    <div class="mb-0">__('{{ experience.company.description }}')</div>
+                    </p>
                 </span>
-                <img class="img-fluid img-experience" src="{{ experience.company.image }}" alt="">
-            </a>
-            <p></p>
-            <p>__('{{ experience.description }}')</p>
-        </div>
-        <div class="resume-date text-md-right">
-            <span class="text-primary">{{ experience.startDate }} - {{ experience.endDate }}</span>
-        </div>
+            </span>
+            <img class="img-fluid img-experience" src="{{ experience.company.image }}" alt="">
+        </a>
+        <p></p>
+        <p>__('{{ experience.description }}')</p>
     </div>
+    <div class="resume-date text-md-right">
+        <span class="text-primary">{{ experience.startDate }} - {{ experience.endDate }}</span>
+    </div>
+</div>
 %}

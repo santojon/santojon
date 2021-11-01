@@ -14,7 +14,8 @@ User: {
         facebook: string,
         linkedin: string,
         twitter: string,
-        github: string
+        github: string,
+        instagram: string
     },
     skills: {
         languages: [string],

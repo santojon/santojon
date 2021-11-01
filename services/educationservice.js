@@ -1,8 +1,8 @@
-with(
-    Sgfd.Base.merge(
-        MyjsonbridgeService,
-        InstitutionService
-    )
+with (
+Sgfd.Base.merge(
+    DataBridgeService,
+    InstitutionService
+)
 ) {
     /**
      * The service that process and manage Education related data

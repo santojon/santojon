@@ -7,7 +7,7 @@
         <!-- Languages -->
         <languages></languages>
 
-        <div class="subheading mb-3">__('Workflow') &amp; __('Qualifications')</div>
+        <div class="subheading mb-3">__('Work') &amp; __('Qualifications')</div>
 
         <!-- Qualifications -->
         <qualifications></qualifications>

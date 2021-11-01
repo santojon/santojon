@@ -1,0 +1,54 @@
+[
+    {
+        "firstName": "Jonathan",
+        "lastName": "Santos",
+        "username": "santojon",
+        "address": "Jose Gomes Street, 5",
+        "locationInfo": "Feira Nova - PE, Brazil",
+        "phone": "+55 (81) 9 9681-6217",
+        "email": "santojon5@gmail.com",
+        "about": "I'm a developer by nature, and this helps me in my job and life. I have so much fun when coding. I love to code and to talk about technology in general. I have passion for new ideas and think, discuss about them and how to make them a reality. Im my years of work I learn so much about code and its techniques, and use this in my life as developer.",
+        "image": "https://scontent.fcau4-1.fna.fbcdn.net/v/t1.6435-9/127217018_3798541316832015_5422070894338081996_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeFrBnJ7V-oPixcoL0cYqRiv7W0j_cPkfHvtbSP9w-R8e1KdKlcZFT8iykdJVi39Cq37UUMNvPgTXR7SOpeT17Cz&_nc_ohc=VCO2jQxEp_UAX_2hjQh&_nc_ht=scontent.fcau4-1.fna&oh=454f2dd0f5ac8d47091e843f8baf443f&oe=61A2F7BC",
+        "interests": [
+            "Mobile developemnt",
+            "Kotlin Multiplatform",
+            "Kotlin Multiplatform Mobile (KMM)",
+            "Project Management",
+            "Design Patterns",
+            "Dev-Ops",
+            "Software standardization",
+            "Software internationalization",
+            "Educacional software"
+        ],
+        "social": {
+            "facebook": "https://www.facebook.com/santojon",
+            "instagram": "https://www.instagram.com/santojon/",
+            "linkedin": "https://www.linkedin.com/in/santojon/",
+            "twitter": "https://twitter.com/santojon",
+            "github": "https://github.com/santojon/santojon"
+        },
+        "skills": {
+            "languages": [
+                "git",
+                "kotlin",
+                "android",
+                "java",
+                "js",
+                "typescript",
+                "css3",
+                "sass",
+                "less",
+                "html5"
+            ],
+            "qualifications": [
+                "Agile Development (Scrum)",
+                "Project Management",
+                "Leadership",
+                "Dev-Ops"
+            ]
+        },
+        "translations": {
+            "pt-BR": "./data/json/santojon_translations.json"
+        }
+    }
+]

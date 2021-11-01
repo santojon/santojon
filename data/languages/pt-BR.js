@@ -16,6 +16,6 @@ var _language = {
     Present: 'Atual',
     'Programming Languages': 'Linguagens de Programação',
     Tools: 'Ferramentas',
-    Workflow: 'Fluxo de Trabalho',
+    Work: 'Trabalho',
     Qualifications: 'Qualificações'
 }
