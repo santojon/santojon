@@ -1,4 +1,4 @@
-<section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="footer">
+<section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="footer">
     <div class="w-100">
         <h2 class="mb-5">__('Contact')</h2>
 

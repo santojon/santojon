@@ -4,7 +4,7 @@
  */
 pages.Home = function (params) {
     // add direct support for HomeController functions
-    with(HomeController) {
+    with (HomeController) {
         index(params)
 
         // Loader related
@@ -19,8 +19,9 @@ pages.Home = function (params) {
         }
 
         setTimeout(() => {
+            $('#nav-about').addClass('active')
             $('#body-content').removeClass('hidden-body')
             $('#loader').addClass('hidden-body')
-        }, 1000)
+        }, 2000)
     }
 }

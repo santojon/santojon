@@ -4,7 +4,7 @@
  */
 pages.User = (params) => {
     // add direct support for UserController functions
-    with(UserController) {
+    with (UserController) {
         if (params) {
             if (params.user) {
                 index(params.user)
