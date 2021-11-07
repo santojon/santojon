@@ -1,0 +1,3 @@
+<li class="nav-item">
+    <a id="nav-portifolio" class="nav-link js-scroll-trigger" href="#portifolio">__('Projects')</a>
+</li>

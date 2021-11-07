@@ -75,6 +75,12 @@ pages.attach(
  * Default user skills
  */
 pages.attach(
+    'load_user_skills',
+    'templates/pages/user/_skills.frgg',
+    'user-skills'
+)
+
+pages.attach(
     'load_user_skills_languages',
     'templates/pages/user/_skills_languages.frgg',
     'languages'
@@ -93,4 +99,43 @@ pages.attach(
     'load_user_footer',
     'templates/pages/user/_footer.frgg',
     'user-footer'
+)
+
+/**
+ * Nav Items
+ */
+pages.attach(
+    'load_user_nav',
+    'templates/common/nav/_user.frgg',
+    'nav-user'
+)
+
+pages.attach(
+    'load_user_nav_extras',
+    'templates/common/nav/_user_extras.frgg',
+    'nav-user-extras'
+)
+
+pages.attach(
+    'load_user_nav_extra_footer',
+    'templates/common/nav/_user_extra_footer.frgg',
+    'nav-user-extra-footer'
+)
+
+pages.attach(
+    'load_experience_nav',
+    'templates/common/nav/_experience.frgg',
+    'nav-experience'
+)
+
+pages.attach(
+    'load_education_nav',
+    'templates/common/nav/_education.frgg',
+    'nav-education'
+)
+
+pages.attach(
+    'load_projects_nav',
+    'templates/common/nav/_projects.frgg',
+    'nav-projects'
 )

@@ -1,0 +1,6 @@
+<li class="nav-item">
+    <a id="nav-skills" class="nav-link js-scroll-trigger" href="#skills">__('Skills')</a>
+</li>
+<li class="nav-item">
+    <a id="nav-interests" class="nav-link js-scroll-trigger" href="#interests">__('Interests')</a>
+</li>

@@ -1,0 +1,3 @@
+<li class="nav-item">
+    <a id="nav-footer" class="nav-link js-scroll-trigger" href="#footer">__('Contact')</a>
+</li>

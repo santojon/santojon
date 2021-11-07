@@ -1,12 +1,16 @@
-(function($) {
+function updateSmoothScrolling($) {
   "use strict"; // Start of use strict
 
   // Smooth scrolling using jQuery easing
-  $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
+  $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
+    console.log("asdasdasd")
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
       var target = $(this.hash);
+      console.log(target)
       target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      console.log(2, target)
       if (target.length) {
+        console.log(target.length)
         $('html, body').animate({
           scrollTop: (target.offset().top)
         }, 1000, "easeInOutExpo");
@@ -16,7 +20,7 @@
   });
 
   // Closes responsive menu when a scroll trigger link is clicked
-  $('.js-scroll-trigger').click(function() {
+  $('.js-scroll-trigger').click(function () {
     $('.navbar-collapse').collapse('hide');
   });
 
@@ -25,4 +29,6 @@
     target: '#sideNav'
   });
 
-})(jQuery); // End of use strict
+} // End of use strict
+
+updateSmoothScrolling(jQuery)

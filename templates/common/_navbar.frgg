@@ -9,28 +9,14 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Nav Itens -->
         <ul class="navbar-nav">
-            <li class="nav-item">
-                <a id="nav-about" class="nav-link js-scroll-trigger" href="#about">__('About')</a>
-            </li>
-            <li class="nav-item">
-                <a id="nav-experience" class="nav-link js-scroll-trigger" href="#experience">__('Experience')</a>
-            </li>
-            <li class="nav-item">
-                <a id="nav-education" class="nav-link js-scroll-trigger" href="#education">__('Education')</a>
-            </li>
-            <li class="nav-item">
-                <a id="nav-skills" class="nav-link js-scroll-trigger" href="#skills">__('Skills')</a>
-            </li>
-            <li class="nav-item">
-                <a id="nav-interests" class="nav-link js-scroll-trigger" href="#interests">__('Interests')</a>
-            </li>
-            <li class="nav-item">
-                <a id="nav-portifolio" class="nav-link js-scroll-trigger" href="#portifolio">__('Projects')</a>
-            </li>
-            <li class="nav-item">
-                <a id="nav-footer" class="nav-link js-scroll-trigger" href="#footer">__('Contact')</a>
-            </li>
+            <nav-user></nav-user>
+            <nav-experience></nav-experience>
+            <nav-education></nav-education>
+            <nav-user-extras></nav-user-extras>
+            <nav-projects></nav-projects>
+            <nav-user-extra-footer></nav-user-extra-footer>
         </ul>
     </div>
 </nav>

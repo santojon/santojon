@@ -1,0 +1,3 @@
+<li class="nav-item">
+    <a id="nav-education" class="nav-link js-scroll-trigger" href="#education">__('Education')</a>
+</li>

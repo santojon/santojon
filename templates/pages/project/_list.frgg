@@ -1,15 +1,21 @@
-<div class="row no-gutters">
-    {% for project in projects =>
-    <div class="col-lg-6">
-        <a class="portfolio-item project-item" href="{{ project.url }}">
-            <span class="caption">
-                <span class="caption-content">
-                    <h2>__('{{ project.name }}')</h2>
-                    <p class="mb-0">__('{{ project.description }}')</p>
-                </span>
-            </span>
-            <img class="img-fluid" src="{{ project.image }}" alt="">
-        </a>
+<section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="portifolio">
+    <div class="w-100">
+        <h2 class="mb-5">__('Projects')</h2>
+        <div class="row no-gutters">
+            {% for project in projects =>
+            <div class="col-lg-6">
+                <a class="portfolio-item project-item" href="{{ project.url }}">
+                    <span class="caption">
+                        <span class="caption-content">
+                            <h2>__('{{ project.name }}')</h2>
+                            <p class="mb-0">__('{{ project.description }}')</p>
+                        </span>
+                    </span>
+                    <img class="img-fluid" src="{{ project.image }}" alt="">
+                </a>
+            </div>
+            %}
+        </div>
     </div>
-    %}
-</div>
+</section>
+<hr class="m-0">

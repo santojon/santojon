@@ -1,10 +1,2 @@
-<section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="portifolio">
-    <div class="w-100">
-        <h2 class="mb-5">__('Projects')</h2>
-
-        <!-- Projects List -->
-        <projects></projects>
-
-    </div>
-</section>
-<hr class="m-0">
+<!-- Projects List -->
+<projects></projects>
