@@ -3,7 +3,12 @@
  */
 .img-experience {
     float: left;
-    max-width: 120px;
+    height: 120px;
+    min-width: 120px;
+}
+
+.portfolio-item.experience-item {
+    min-width: 500px;
 }
 
 .portfolio-item .caption .caption-content.caption-content-experience {

@@ -12,10 +12,28 @@
         "url": "https://portal.cin.ufpe.br/"
     },
     {
-        "name": "Made",
-        "description": "Madein Web & Mobile",
-        "image": "data:image/png;base64,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",
-        "url": "https://www.madeinweb.com.br/"
+        "name": "CESAR",
+        "description": "Center of Studies and Advanced Systems of Recife",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeG4ybpTwblgsWx5rfaxQvkaOBSg5nkP2gTQ&usqp=CAU",
+        "url": "https://www.cesar.org.br/"
+    },
+    {
+        "name": "Ecolivery",
+        "description": "Ecological Deliveries",
+        "image": "https://i2.wp.com/www.workspot.com.br/site/wp-content/uploads/2016/10/ECOLIVERY.png?fit=400%2C300",
+        "url": "https://ecolivery.wordpress.com/"
+    },
+    {
+        "name": "Vagalume WiFi Solutions",
+        "description": "You manage your business, we manage your WiFi",
+        "image": "https://vagalumewifi.com.br/wp-content/uploads/2021/10/cropped-LOGO-VERTICAL.png",
+        "url": "https://vagalumewifi.com.br/"
+    },
+    {
+        "name": "Pegasus Technology",
+        "description": "Turnig images into solutions",
+        "image": "https://www.pegasustec.com.br/wp-content/uploads/2020/03/pegasus_AVATAR-768x445.png",
+        "url": "https://www.pegasustec.com.br/"
     },
     {
         "name": "LIVOX",
@@ -24,14 +42,14 @@
         "url": "https://livox.com.br"
     },
     {
-        "name": "CESAR",
-        "description": "Center of Studies and Advanced Systems of Recife",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeG4ybpTwblgsWx5rfaxQvkaOBSg5nkP2gTQ&usqp=CAU",
-        "url": "https://www.cesar.org.br/"
+        "name": "Madein Web & Mobile",
+        "description": "We are Made for digital",
+        "image": "https://yt3.ggpht.com/e6qPIlPts0Wy_BwoEDBBa65C_yDKbteQ-z3Cj2d2Mhbyf-ts6GdLR51VUF4Xvhot6gUMWk_u_Q=s900-c-k-c0x00ffffff-no-rj",
+        "url": "https://www.madeinweb.com.br/"
     },
     {
         "name": "Inter Platform",
-        "description": "More than a bank, a super app that simplifies your life.",
+        "description": "More than a bank, a super app that simplifies your life",
         "image": "data:image/png;base64,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",
         "url": "https://www.bancointer.com.br/"
     }
