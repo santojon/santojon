@@ -1,7 +1,7 @@
 ### Hi, I'm Jonathan Santos - aka [@santojon][website]
 
 ## I'm passionated to learn things
-- I’m currently working on an [A Steam Deck Plugin][https://github.com/santojon/Deck-Shelves]!
+- I’m currently working on an [A Steam Deck Plugin](https://github.com/santojon/Deck-Shelves)!
 - 🌱 I love plants and animals
 - ⚡ Fun fact: Coding is my work and even my hobby
 
