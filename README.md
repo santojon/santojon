@@ -1,7 +1,7 @@
 ### Hi, I'm Jonathan Santos - aka [@santojon][website]
 
 ## I'm passionated to learn things
-- I’m currently working on a [Steam Deck Plugin](https://github.com/santojon/Deck-Shelves)!
+- I’m currently working on a [Steam Deck Plugin][deck-shelves]!
 - 🌱 I love plants and animals
 - ⚡ Fun fact: Coding is my work and even my hobby
 
@@ -15,6 +15,8 @@
 
 <br />
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/F2F61WE76V)
+
 ---
 
 <img align="left" alt="codeSTACKr's Github Stats" src="https://github-readme-stats.vercel.app/api?username=santojon&show_icons=true&hide_border=true" />
@@ -25,3 +27,4 @@
 [instagram]: https://instagram.com/santojon
 [linkedin]: https://linkedin.com/in/santojon
 [eventer]: https://github.com/santojon/Eventer
+[deck-shelves]: https://github.com/santojon/Deck-Shelves
