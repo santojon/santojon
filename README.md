@@ -1,5 +1,6 @@
 ### Hi, I'm Jonathan Santos - aka [@santojon][website]
 [![Sponsor](https://img.shields.io/badge/Sponsor-GitHub-ea4aaa?logo=github&logoColor=white)](https://github.com/sponsors/santojon)
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-F16061?logo=ko-fi&logoColor=white)](https://ko-fi.com/santojon)
 
 ## I'm passionated to learn things
 - I’m currently working on a [Steam Deck Plugin][deck-shelves]!
@@ -14,9 +15,7 @@
 [<img align="left" alt="santojon | Instagram" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/instagram.svg" />][instagram]
 [<img align="left" alt="santojon | Facebook" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/facebook.svg" />][facebook]
 
-<br /><br />
-
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/F2F61WE76V)
+<br />
 
 ---
 
