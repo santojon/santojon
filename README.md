@@ -15,12 +15,6 @@
 [<img align="left" alt="santojon | Instagram" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/instagram.svg" />][instagram]
 [<img align="left" alt="santojon | Facebook" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/facebook.svg" />][facebook]
 
-<br />
-
----
-
-<img align="left" alt="codeSTACKr's Github Stats" src="https://github-readme-stats.vercel.app/api?username=santojon&show_icons=true&hide_border=true" />
-
 [website]: https://santojon.com
 [twitter]: https://twitter.com/santojon
 [facebook]: https://fb.com/santojon
